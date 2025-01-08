@@ -22,7 +22,14 @@ The main goal of this project is to demonstrate the integration of DataStax Astr
 - **Langflow:** Employed to create the analysis workflow and integrate with GPT.
 - **GPT Integration:** Utilized to generate natural language insights from the analyzed data.
 
-## Workflow
+## Langflow Workflow 
+
+![image](https://github.com/user-attachments/assets/bfa7201e-00ce-49ef-a653-f8d736a1e551)
+
+# Data Insertion Flow
+
+![image](https://github.com/user-attachments/assets/1d81aa28-01df-4559-8fc5-62f57e5b3dec)
+
 
 1. **Data Ingestion:**
    - Created a mock dataset simulating social media engagement metrics (likes, shares, comments) for various post types (carousel, reels, static images).
