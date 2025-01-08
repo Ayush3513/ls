@@ -21,9 +21,10 @@ interface LangflowClient {
 
 class LangflowClient {
   constructor(applicationToken) {
-    this.baseURL = ''  // Empty since we're using proxy
+    this.baseURL = "https://api.langflow.astra.datastax.com"
     this.applicationToken = applicationToken
   }
+
 
   async post(endpoint, body, headers = {}) {
     headers["Authorization"] = `Bearer ${this.applicationToken}`
@@ -49,16 +50,15 @@ class LangflowClient {
     }
   }
 
-  async runFlow(flowIdOrName: string, langflowId: string, inputValue: any, inputType = 'chat', outputType = 'chat', tweaks = {}) {
-    const endpoint = `/api/langflow/${flowIdOrName}`; // Include flowId in endpoint
+  async runFlow(flowIdOrName, langflowId, inputValue, inputType = 'chat', outputType = 'chat', tweaks = {}) {
+    const endpoint = `/lf/${langflowId}/api/v1/run/${flowIdOrName}`
     return this.post(endpoint, { 
-        langflow_id: langflowId, // Include langflowId in body
-        input_value: inputValue, 
-        input_type: inputType, 
-        output_type: outputType, 
-        tweaks: tweaks 
-    });
-}
+      input_value: inputValue, 
+      input_type: inputType, 
+      output_type: outputType, 
+      tweaks: tweaks 
+    })
+  }
 }
 export const Chatbot = () => {
   const [input, setInput] = useState('')
@@ -75,7 +75,7 @@ export const Chatbot = () => {
   }, [messages])
 
   const langflowClient = new LangflowClient(
-    process.env.VITE_LANGFLOW_APPLICATION_TOKEN
+    "AstraCS:BWmMsZRuUkKqHgwqMokNlkvp:fd56e53389702581e9e897d9baa4913a6b0a80c262973e57e12e6811a879005f"
   )
 
   const handleSubmit = async (e: React.FormEvent) => {
