@@ -62,10 +62,6 @@ The project generates insights such as:
 - Expand the analysis to include more detailed metrics and demographic data.
 - Develop a user-friendly dashboard for visualizing the analytics and insights.
 
-## Team
-
-[Include team member names and roles here]
-
 ## Acknowledgments
 
 We would like to thank the hackathon organizers for providing this opportunity and the tools (DataStax Astra DB and Langflow) to work with.
