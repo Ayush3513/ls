@@ -1,10 +1,10 @@
 {
  "rewrites": [
-    {
-      "source": "/lf/:path*",
-      "destination": "https://api.langflow.astra.datastax.com/lf/:path*"
-    }
-  ],
+  {
+    "source": "/api/:path*",
+    "destination": "https://api.langflow.astra.datastax.com/:path*"
+  }
+],
   "headers": [
     {
       "source": "/lf/(.*)",
