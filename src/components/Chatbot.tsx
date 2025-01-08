@@ -50,14 +50,14 @@ class LangflowClient {
   }
 
   async runFlow(flowIdOrName, langflowId, inputValue, inputType = 'chat', outputType = 'chat', tweaks = {}) {
-    const endpoint = `/lf/${langflowId}/api/v1/run/${flowIdOrName}`
+    const endpoint = `/api/langflow`; // Call the serverless function
     return this.post(endpoint, { 
-      input_value: inputValue, 
-      input_type: inputType, 
-      output_type: outputType, 
-      tweaks: tweaks 
-    })
-  }
+        input_value: inputValue, 
+        input_type: inputType, 
+        output_type: outputType, 
+        tweaks: tweaks 
+    });
+}
 }
 export const Chatbot = () => {
   const [input, setInput] = useState('')
