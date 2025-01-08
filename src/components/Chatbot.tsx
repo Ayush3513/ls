@@ -49,9 +49,10 @@ class LangflowClient {
     }
   }
 
-  async runFlow(flowIdOrName, langflowId, inputValue, inputType = 'chat', outputType = 'chat', tweaks = {}) {
-    const endpoint = `/api/langflow`; // Call the serverless function
+  async runFlow(flowIdOrName: string, langflowId: string, inputValue: any, inputType = 'chat', outputType = 'chat', tweaks = {}) {
+    const endpoint = `/api/langflow/${flowIdOrName}`; // Include flowId in endpoint
     return this.post(endpoint, { 
+        langflow_id: langflowId, // Include langflowId in body
         input_value: inputValue, 
         input_type: inputType, 
         output_type: outputType, 
