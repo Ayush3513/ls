@@ -52,12 +52,12 @@ class LangflowClient {
   }
 
   async runFlow(flowIdOrName, langflowId, inputValue, inputType = 'chat', outputType = 'chat', tweaks = {}) {
-    const endpoint = `/lf/${langflowId}/api/v1/run/${flowIdOrName}`
-    return this.post(endpoint, { 
-      input_value: inputValue, 
-      input_type: inputType, 
-      output_type: outputType, 
-      tweaks: tweaks 
+    const endpoint = `/${langflowId}/api/v1/run/${flowIdOrName}`
+    return this.post(endpoint, {
+      input_value: inputValue,
+      input_type: inputType,
+      output_type: outputType,
+      tweaks: tweaks
     })
   }
 }
